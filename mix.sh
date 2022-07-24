@@ -1,1 +1,1 @@
-alias mix="docker-compose run --rm phoenix mix"
+alias mix="docker-compose run --rm app mix"
