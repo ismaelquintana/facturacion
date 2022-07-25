@@ -31,20 +31,20 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: $-mix-
       - name: Install dependencies
-        run: mix deps.get
+        run: docker-compose run --rm app mix deps.get
       - name: Check for outdated deps
-        run: mix hex.outdated
+        run: docker-compose run --rm app mix hex.outdated
       - name: Compile
         run: |
-          MIX_ENV = prod mix compile --warnings-as-errors
-          MIX_ENV = test mix compile --warnings-as-errors
-          MIX_ENV = dev mix compile --warnings-as-errors          
+          MIX_ENV = prod docker-compose run --rm app mix compile --warnings-as-errors
+          MIX_ENV = test docker-compose run --rm app mix compile --warnings-as-errors
+          MIX_ENV = dev docker-compose run --rm app mix compile --warnings-as-errors          
       - name: Lint
         run: mix format --check-formatted
       - name: Credo
-        run: mix credo --strict
+        run: docker-compose run --rm app mix credo --strict
       - name: Run test
         run: |
-          mix ecto.create
-          mix ecto.migrate
-          mix coveralls
+          docker-compose run --rm app mix ecto.create
+          docker-compose run --rm app mix ecto.migrate
+          docker-compose run --rm app mix coveralls
