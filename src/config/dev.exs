@@ -2,13 +2,7 @@ import Config
 
 # Configure your database
 config :facturacion, Facturacion.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "facturacion_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  database: "/Users/ismqui/dev/elixir/facturacion.sqlite"
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
