@@ -19,8 +19,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            _build/dev/*.plt
-            _build/dev/*.plt.hash
+            src/_build/dev/*.plt
+            src/_build/dev/*.plt.hash
           key: plt-cache-${{ steps.set_vars.outputs.mix_hash }}
           restore-keys: |
             plt-cache-
@@ -29,5 +29,5 @@ jobs:
         with:
           elixir-version: "1.13.4"
           otp-version: "24.2"
-      - run: mix deps.get
-      - run: mix dialyzer
+      - run: ./src/mix deps.get
+      - run: ./src/mix dialyzer
