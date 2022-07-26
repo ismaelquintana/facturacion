@@ -33,5 +33,5 @@ npm-debug.log
 /assets/node_modules/
 
 # Ignore sqlite3 databases
-facturacion_dev.db*
-facturacion_test.db*
+*.db
+*.db-*
