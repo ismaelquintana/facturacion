@@ -21,20 +21,20 @@ if System.get_env("PHX_SERVER") do
 end
 
 if config_env() == :prod do
-  database_url =
-    System.get_env("DATABASE_URL") ||
+  database_path =
+    # System.get_env("DATABASE_URL") ||
+    System.get_env("DATABASE_PATH") ||
       raise """
-      environment variable DATABASE_URL is missing.
-      For example: ecto://USER:PASS@HOST/DATABASE
+      environment variable DATABASE_PATH is missing.
+      For example: /etc/facturacion/facturacion.db
       """
 
   maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
 
   config :facturacion, Facturacion.Repo,
     # ssl: true,
-    url: database_url,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-    socket_options: maybe_ipv6
+    database: database_path,
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
