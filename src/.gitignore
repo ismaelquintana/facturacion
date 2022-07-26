@@ -32,3 +32,6 @@ facturacion-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore sqlite3 databases
+src/facturacion_dev.db
+src/facturacion_test.db
