@@ -9,6 +9,7 @@ dcr => docker-compose run
 
 All setup for code hygene taken from: 
 https://experimentingwithcode.com/code-hygiene-with-elixir-part-1/
+https://experimentingwithcode.com/code-hygiene-with-elixir-part-2/
 
 Credo:
 

@@ -35,11 +35,11 @@ jobs:
       - name: Check for outdated deps
         run: docker-compose run --rm app mix hex.outdated
       - name: Compile
-        run: docker-compose run --rm app mix compile --warnings-as-errors
-        # run: |
-        #   MIX_ENV = prod docker-compose run --rm app mix compile --warnings-as-errors
-        #   MIX_ENV = test docker-compose run --rm app mix compile --warnings-as-errors
-        #   MIX_ENV = dev docker-compose run --rm app mix compile --warnings-as-errors
+        # run: docker-compose run -e MIX_ENV=dev --rm app mix compile --warnings-as-errors
+        run: |
+          docker-compose run -e MIX_ENV=prod --rm app mix compile --warnings-as-errors
+          docker-compose run -e MIX_ENV=test --rm app mix compile --warnings-as-errors
+          docker-compose run -e MIX_ENV=dev --rm app mix compile --warnings-as-errors
       - name: Lint
         run: docker-compose run --rm app mix format --check-formatted
       - name: Credo
