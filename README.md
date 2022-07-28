@@ -37,3 +37,15 @@ Exdoc:
 GitHooks:
 * dcr --rm app mix git_hooks.run pre_commit
 * dcr --rm app mix git_hooks.run pre_push
+
+Other commands could be useful to include taken from:
+https://curiosum.com/blog/mastering-elixir-ci-pipeline?utm_medium=email&utm_source=elixir-radar
+
+mix hex.audit
+mix deps.unlock --check-unused
+mix deps.audit ---> should be install
+mix format --dry-run --check-formatted
+mix compile --all-warnings --warning-as-errors
+mix ecto.create && mix ecto.migrate && mix ecto.rollback --all
+mix sobelow
+mix doctor
