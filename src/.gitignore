@@ -35,3 +35,6 @@ npm-debug.log
 # Ignore sqlite3 databases
 *.db
 *.db-*
+
+# directory of elixir.ls extension
+/.elixir_ls/

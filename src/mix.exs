@@ -62,7 +62,10 @@ defmodule Facturacion.MixProject do
       {:git_hooks, "~> 0.5", only: [:dev, :test], runtime: false},
       {:boundary, "~> 0.9.0", runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.24", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.24", only: :dev, runtime: false},
+      {:doctor, "~> 0.19.0", only: :dev},
+      {:sobelow, "~> 0.8", only: :dev},
+      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
