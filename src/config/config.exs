@@ -54,7 +54,7 @@ if Mix.env() != :prod do
     hooks: [
       pre_commit: [
         tasks: [
-          {:cmd, "mix compile --warnings-as-errors"},
+          {:cmd, "dcr --rm app mix compile --warnings-as-errors"},
           {:cmd, "mix format --check-formatted"},
           {:cmd, "mix credo --strict"}
         ]

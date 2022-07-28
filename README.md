@@ -41,11 +41,11 @@ GitHooks:
 Other commands could be useful to include taken from:
 https://curiosum.com/blog/mastering-elixir-ci-pipeline?utm_medium=email&utm_source=elixir-radar
 
-mix hex.audit
-mix deps.unlock --check-unused
-mix deps.audit ---> should be install
-mix format --dry-run --check-formatted
-mix compile --all-warnings --warning-as-errors
-mix ecto.create && mix ecto.migrate && mix ecto.rollback --all
-mix sobelow
-mix doctor
+* dcr --rm app mix hex.audit
+* dcr --rm app mix deps.unlock --check-unused
+* dcr --rm app mix deps.audit ---> should be install
+* dcr --rm app mix format --dry-run --check-formatted
+* dcr --rm app mix compile --all-warnings --warning-as-errors
+* dcr --rm app mix ecto.create && mix ecto.migrate && mix ecto.rollback --all
+* dcr --rm app mix sobelow
+* dcr --rm app mix doctor
