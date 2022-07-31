@@ -23,7 +23,8 @@ config :facturacion, FacturacionWeb.Endpoint,
   secret_key_base: "N5Gdy3/zDj+quXC72YfIKlRX3vOMXgjL1p60ykS11pUusOtSY1uZfsRHSXvM9sKH",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support

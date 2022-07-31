@@ -52,3 +52,9 @@ https://curiosum.com/blog/mastering-elixir-ci-pipeline?utm_medium=email&utm_sour
 - dcr --rm app mix ecto.create && mix ecto.migrate && mix ecto.rollback --all
 - dcr --rm app mix sobelow
 - dcr --rm app mix doctor
+
+----
+Install tailwindcss:
+
+https://tailwindcss.com/docs/guides/phoenix
+

@@ -65,7 +65,8 @@ defmodule Facturacion.MixProject do
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:doctor, "~> 0.19.0", only: :dev},
       {:sobelow, "~> 0.8", only: :dev},
-      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false}
+      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
 
@@ -81,7 +82,7 @@ defmodule Facturacion.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"],
+      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"],
       check: ["format", "credo --strict", "compile --warning-as-errors", "dialyzer", "docs"]
     ]
   end

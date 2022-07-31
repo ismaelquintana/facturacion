@@ -29,7 +29,7 @@ if config_env() == :prod do
       For example: /etc/facturacion/facturacion.db
       """
 
-  maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
+  _maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
 
   config :facturacion, Facturacion.Repo,
     # ssl: true,
