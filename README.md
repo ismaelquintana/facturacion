@@ -39,6 +39,10 @@ First tries with phoenix framework using docker.
 - dcr --rm app mix git_hooks.run pre_commit
 - dcr --rm app mix git_hooks.run pre_push
 
+---
+Sometimes you might have problems when doing `git commit`, if so do:
+- rm -rf ./hooks
+- dcr --rm app mix git_hooks.install
 
 ---
 Other commands could be useful to include taken from:
@@ -57,4 +61,6 @@ https://curiosum.com/blog/mastering-elixir-ci-pipeline?utm_medium=email&utm_sour
 Install tailwindcss:
 
 https://tailwindcss.com/docs/guides/phoenix
+
+---
 
