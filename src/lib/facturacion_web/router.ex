@@ -18,6 +18,12 @@ defmodule FacturacionWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/clientes", ClienteLive.Index, :index
+    live "/clientes/new", ClienteLive.Index, :new
+    live "/clientes/:id/edit", ClienteLive.Index, :edit
+
+    live "/clientes/:id", ClienteLive.Show, :show
+    live "/clientes/:id/show/edit", ClienteLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

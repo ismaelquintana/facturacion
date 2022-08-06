@@ -1,0 +1,36 @@
+<h1>Show Cliente</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.cliente_show_path(@socket, :show, @cliente)}>
+    <.live_component
+      module={FacturacionWeb.ClienteLive.FormComponent}
+      id={@cliente.id}
+      title={@page_title}
+      action={@live_action}
+      cliente={@cliente}
+      return_to={Routes.cliente_show_path(@socket, :show, @cliente)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @cliente.name %>
+  </li>
+
+  <li>
+    <strong>Direccion:</strong>
+    <%= @cliente.direccion %>
+  </li>
+
+  <li>
+    <strong>Cif:</strong>
+    <%= @cliente.cif %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.cliente_show_path(@socket, :edit, @cliente), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.cliente_index_path(@socket, :index) %></span>
