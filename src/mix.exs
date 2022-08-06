@@ -56,7 +56,7 @@ defmodule Facturacion.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:ecto_sqlite3, "~> 0.7.7"},
+      {:ecto_sqlite3, "~> 0.8.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.14", only: [:dev, :test], runtime: false},
       {:git_hooks, "~> 0.5", only: [:dev, :test], runtime: false},
