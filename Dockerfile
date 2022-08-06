@@ -12,7 +12,7 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION} | bash
 RUN apt-get install -y nodejs
 
 RUN mix local.hex --force
-RUN mix archive.install --force hex phx_new #{PHOENIX_VERSION}
+RUN mix archive.install --force hex phx_new ${PHOENIX_VERSION}
 RUN mix local.rebar --force
 
 ENV APP_HOME /app
