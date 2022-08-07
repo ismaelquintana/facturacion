@@ -1,6 +1,6 @@
 <div class="container mx-auto px-10">
 
-  <h1 class="text-5xl font-bold">Listing Clientes</h1>
+  <h1 class="text-5xl font-bold mb-2">Listing Clientes</h1>
 
   <%= if @live_action in [:new, :edit] do %>
   <.modal return_to={Routes.cliente_index_path(@socket, :index)}>
@@ -14,32 +14,42 @@
     />
   </.modal>
   <% end %>
-  <table class="px-10 border-collapse border border-slate-500 table-fixed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Direccion</th>
-        <th>Cif</th>
-
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="clientes">
-      <%= for cliente <- @clientes do %>
-        <tr id={"cliente-#{cliente.id}"}>
-          <td><%= cliente.name %></td>
-          <td><%= cliente.direccion %></td>
-          <td><%= cliente.cif %></td>
-
-          <td>
-            <span><%= live_redirect "Show", to: Routes.cliente_show_path(@socket, :show, cliente) %></span>
-            <span><%= live_patch "Edit", to: Routes.cliente_index_path(@socket, :edit, cliente) %></span>
-            <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: cliente.id, data: [confirm: "Are you sure?"] %></span>
-          </td>
+  <div class="overflow-auto rounded-lg shadow mb-4">
+    <table class="w-full px-10 border-collapse table-fixed">
+      <thead class="bg-gray-50 border-b-2 border-gray-200">
+        <tr>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left">Direccion</th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left">Cif</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody id="clientes" class="divide-y divide-gray-100">
+        <%= for cliente <- @clientes do %>
+          <tr id={"cliente-#{cliente.id}"}>
+            <td class="p-3 text-sm text-gray-700 whitespace-nowrap"><%= cliente.name %></td>
+            <td class="p-3 text-sm text-gray-700 whitespace-nowrap"><%= cliente.direccion %></td>
+            <td class="p-3 text-sm text-gray-700 whitespace-nowrap"><%= cliente.cif %></td>
+  
+            <td class="whitespace-nowrap">
+              <span
+               class="p-1.5 text-xs font-medium uppercase tracking-wider text-blue-800 bg-blue-200 rounded-lg bg-opacity-50 hover:underline mx-1">
+               <%= live_redirect "Show", to: Routes.cliente_show_path(@socket, :show, cliente) %>
+              </span>
+              <span
+                class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50 hover:underline mx-1">
+                <%= live_patch "Edit", to: Routes.cliente_index_path(@socket, :edit, cliente) %>
+              </span>
+              <span
+                class="p-1.5 text-xs font-medium uppercase tracking-wider text-red-800 bg-red-200 rounded-lg bg-opacity-50 hover:underline mx-1">
+                <%= link "Delete", to: "#", phx_click: "delete", phx_value_id: cliente.id, data: [confirm: "Are you sure?"] %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
   <span><%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %></span>
 
