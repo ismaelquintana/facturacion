@@ -1,4 +1,8 @@
 defmodule FacturacionWeb.ClienteLive.Index do
+  @moduledoc """
+  Module for display of list of clients
+  """
+
   use FacturacionWeb, :live_view
 
   alias Facturacion.Clientes

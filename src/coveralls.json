@@ -5,7 +5,9 @@
         "lib/facturacion_web.ex",
         "lib/facturacion_web/router.ex",
         "lib/facturacion_web/telemetry.ex",
-        "lib/facturacion_web/views/error_helpers.ex"
+        "lib/facturacion_web/views/error_helpers.ex",
+        "lib/facturacion_web/live/cliente_live/form_component.ex",
+        "lib/facturacion_web/live/live_helpers.ex"
     ],
 
     "terminal_options": {

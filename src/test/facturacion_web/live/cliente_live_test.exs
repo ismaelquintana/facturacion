@@ -5,7 +5,11 @@ defmodule FacturacionWeb.ClienteLiveTest do
   import Facturacion.ClientesFixtures
 
   @create_attrs %{cif: "some cif", direccion: "some direccion", name: "some name"}
-  @update_attrs %{cif: "some updated cif", direccion: "some updated direccion", name: "some updated name"}
+  @update_attrs %{
+    cif: "some updated cif",
+    direccion: "some updated direccion",
+    name: "some updated name"
+  }
   @invalid_attrs %{cif: nil, direccion: nil, name: nil}
 
   defp create_cliente(_) do

@@ -35,7 +35,12 @@ defmodule Facturacion.ClientesTest do
 
     test "update_cliente/2 with valid data updates the cliente" do
       cliente = cliente_fixture()
-      update_attrs = %{cif: "some updated cif", direccion: "some updated direccion", name: "some updated name"}
+
+      update_attrs = %{
+        cif: "some updated cif",
+        direccion: "some updated direccion",
+        name: "some updated name"
+      }
 
       assert {:ok, %Cliente{} = cliente} = Clientes.update_cliente(cliente, update_attrs)
       assert cliente.cif == "some updated cif"

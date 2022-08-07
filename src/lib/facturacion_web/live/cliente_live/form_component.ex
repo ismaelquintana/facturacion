@@ -1,4 +1,7 @@
 defmodule FacturacionWeb.ClienteLive.FormComponent do
+  @moduledoc """
+  Module for live form component to insert new clients
+  """
   use FacturacionWeb, :live_component
 
   alias Facturacion.Clientes

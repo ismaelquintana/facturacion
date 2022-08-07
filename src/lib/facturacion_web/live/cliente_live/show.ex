@@ -1,4 +1,7 @@
 defmodule FacturacionWeb.ClienteLive.Show do
+  @moduledoc """
+  Module for display of a client
+  """
   use FacturacionWeb, :live_view
 
   alias Facturacion.Clientes

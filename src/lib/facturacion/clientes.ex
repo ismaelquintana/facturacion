@@ -2,6 +2,7 @@ defmodule Facturacion.Clientes do
   @moduledoc """
   The Clientes context.
   """
+  use Boundary, deps: [Facturacion], exports: [Cliente]
 
   import Ecto.Query, warn: false
   alias Facturacion.Repo
