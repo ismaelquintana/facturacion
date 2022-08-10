@@ -1,6 +1,6 @@
-<div class="container mx-auto px-10">
+<div class="mx-auto px-5 w-full">
 
-  <h1 class="text-5xl font-bold mb-2">Listing Clientes</h1>
+  <h1 class="text-5xl font-bold mb-4 text-center">List Clientes</h1>
 
   <%= if @live_action in [:new, :edit] do %>
   <.modal return_to={Routes.cliente_index_path(@socket, :index)}>
@@ -51,7 +51,9 @@
     </table>
   </div>
 
-  <span><%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %></span>
+  <span class="p-1.5 text-xs uppercase tracking-wider text-green-900 bg-green-200 rounded-lg bg-opacity-100 hover:font-bold">
+    <%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %>
+  </span>
 
 </div>
 

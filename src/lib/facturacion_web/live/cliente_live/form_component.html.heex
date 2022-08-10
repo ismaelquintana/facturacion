@@ -1,28 +1,47 @@
-<div>
-  <h2><%= @title %></h2>
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <h2 class="text-center font-medium"><%= @title %></h2>
 
-  <.form
-    let={f}
-    for={@changeset}
-    id="cliente-form"
-    phx-target={@myself}
-    phx-change="validate"
-    phx-submit="save">
-  
-    <%= label f, :name %>
-    <%= text_input f, :name %>
-    <%= error_tag f, :name %>
-  
-    <%= label f, :direccion %>
-    <%= text_input f, :direccion %>
-    <%= error_tag f, :direccion %>
-  
-    <%= label f, :cif %>
-    <%= text_input f, :cif %>
-    <%= error_tag f, :cif %>
-  
-    <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
-    </div>
-  </.form>
+  <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+    <.form
+      let={f}
+      for={@changeset}
+      id="cliente-form"
+      phx-target={@myself}
+      phx-change="validate"
+      phx-submit="save"
+      class="mb-0 space-y-6">
+
+      <div>
+        <%= label f, :name, class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= text_input f, :name, class: "w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" %>
+          <%= error_tag f, :name %>
+        </div>
+      </div>
+
+      <div>
+        <%= label f, :direccion, class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= text_input f, :direccion, class: "w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" %>
+          <%= error_tag f, :direccion %>
+        </div>
+      </div>
+    
+      <div>
+        <%= label f, :cif, class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= text_input f, :cif, class: "w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" %>
+          <%= error_tag f, :cif %>
+        </div>
+      </div>
+    
+      <div>
+        <%=
+          submit "Save",
+          phx_disable_with: "Saving...",
+          class: "w-full p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-blue-400 rounded-lg bg-opacity-50 hover:underline mx-1"
+        %>
+      </div>
+    </.form>
+  </div>
 </div>
