@@ -65,7 +65,7 @@ defmodule Facturacion.MixProject do
       {:ex_doc, "~> 0.24", only: :dev, runtime: false},
       {:doctor, "~> 0.19.0", only: :dev},
       {:sobelow, "~> 0.8", only: :dev},
-      {:mix_audit, "~> 1.0", only: [:dev, :test], runtime: false},
+      {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
