@@ -11,17 +11,15 @@
   </head>
   <body>
     <header>
-      <nav class="p-3 bg-purple-500 shadow md:flex md:items-center md:justify-between">
-        <div>Facturacion</div>
-        <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0">
+      <nav class="p-3 bg-blue-500 shadow md:flex md:items-center md:justify-between">
+        <div>Factura</div>
+        <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0">
           <li class="mx-4 my-6 md:my-0">
-            <a href="https://hexdocs.pm/phoenix/overview.html" class="text-xl hover:text-cyan-500 duration-500">
-              Get Started
-            </a>
+            <%= link "Clientes", to: Routes.cliente_index_path(@conn, :index), class: "text-sm hover:text-cyan-500 duration-500" %>
           </li>
-          <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+        <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
             <li class="mx-4 my-6 md:my-0">
-              <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "text-xl hover:text-cyan-500 duration-500" %>
+              <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "text-sm hover:text-cyan-500 duration-500" %>
             </li>
           <% end %>
         </ul>
