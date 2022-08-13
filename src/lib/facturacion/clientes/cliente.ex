@@ -18,5 +18,11 @@ defmodule Facturacion.Clientes.Cliente do
     cliente
     |> cast(attrs, [:name, :direccion, :cif])
     |> validate_required([:name, :direccion, :cif])
+    |> validate_length(:cif, min: 8)
+    |> validate_format(
+        :cif,
+        ~r/^[0-9]{8}[A-Z,a-z]$|^[A-Z,a-z][0-9]{7}$/,
+        message: "Formato erroneo."
+      )
   end
 end

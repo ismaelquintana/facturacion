@@ -32,9 +32,11 @@
       </div>
   
       <div>
-        <%= label f, :cif, class: "block text-sm font-medium text-gray-700" %>
+        <%= label f, :cif, "CIF/NIF", class: "block text-sm font-medium text-gray-700" %>
         <div class="mt-1">
-          <%= text_input f, :cif, class: "w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" %>
+          <%= text_input f,
+            :cif,
+            class: "w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" %>
         </div>
         <div class="mt-5 bg-red-200 px-2 rounded-lg font-light">
           <%= error_tag f, :cif %>
