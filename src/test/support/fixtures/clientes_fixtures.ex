@@ -11,7 +11,7 @@ defmodule Facturacion.ClientesFixtures do
     {:ok, cliente} =
       attrs
       |> Enum.into(%{
-        cif: "some cif",
+        cif: "02624341H",
         direccion: "some direccion",
         name: "some name"
       })

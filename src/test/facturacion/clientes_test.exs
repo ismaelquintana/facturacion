@@ -21,10 +21,10 @@ defmodule Facturacion.ClientesTest do
     end
 
     test "create_cliente/1 with valid data creates a cliente" do
-      valid_attrs = %{cif: "some cif", direccion: "some direccion", name: "some name"}
+      valid_attrs = %{cif: "02624341H", direccion: "some direccion", name: "some name"}
 
       assert {:ok, %Cliente{} = cliente} = Clientes.create_cliente(valid_attrs)
-      assert cliente.cif == "some cif"
+      assert cliente.cif == "02624341H"
       assert cliente.direccion == "some direccion"
       assert cliente.name == "some name"
     end
@@ -37,13 +37,13 @@ defmodule Facturacion.ClientesTest do
       cliente = cliente_fixture()
 
       update_attrs = %{
-        cif: "some updated cif",
+        cif: "82435732G",
         direccion: "some updated direccion",
         name: "some updated name"
       }
 
       assert {:ok, %Cliente{} = cliente} = Clientes.update_cliente(cliente, update_attrs)
-      assert cliente.cif == "some updated cif"
+      assert cliente.cif == "82435732G"
       assert cliente.direccion == "some updated direccion"
       assert cliente.name == "some updated name"
     end

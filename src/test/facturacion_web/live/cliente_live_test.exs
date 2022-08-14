@@ -4,9 +4,9 @@ defmodule FacturacionWeb.ClienteLiveTest do
   import Phoenix.LiveViewTest
   import Facturacion.ClientesFixtures
 
-  @create_attrs %{cif: "some cif", direccion: "some direccion", name: "some name"}
+  @create_attrs %{cif: "02624341H", direccion: "some direccion", name: "some name"}
   @update_attrs %{
-    cif: "some updated cif",
+    cif: "83746576Y",
     direccion: "some updated direccion",
     name: "some updated name"
   }
@@ -46,7 +46,7 @@ defmodule FacturacionWeb.ClienteLiveTest do
         |> follow_redirect(conn, Routes.cliente_index_path(conn, :index))
 
       assert html =~ "Cliente created successfully"
-      assert html =~ "some cif"
+      assert html =~ "02624341H"
     end
 
     test "updates cliente in listing", %{conn: conn, cliente: cliente} do
@@ -68,7 +68,7 @@ defmodule FacturacionWeb.ClienteLiveTest do
         |> follow_redirect(conn, Routes.cliente_index_path(conn, :index))
 
       assert html =~ "Cliente updated successfully"
-      assert html =~ "some updated cif"
+      assert html =~ "83746576Y"
     end
 
     test "deletes cliente in listing", %{conn: conn, cliente: cliente} do
@@ -108,7 +108,7 @@ defmodule FacturacionWeb.ClienteLiveTest do
         |> follow_redirect(conn, Routes.cliente_show_path(conn, :show, cliente))
 
       assert html =~ "Cliente updated successfully"
-      assert html =~ "some updated cif"
+      assert html =~ "83746576Y"
     end
   end
 end
