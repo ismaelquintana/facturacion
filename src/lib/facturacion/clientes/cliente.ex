@@ -13,7 +13,12 @@ defmodule Facturacion.Clientes.Cliente do
     timestamps()
   end
 
-  @doc false
+  @doc """
+  Validate data, cif must be or 8 numeric digits and a letter:
+  NNNNNNNNC
+  or a letter and seven numeric digits:
+  CNNNNNNN
+  """
   def changeset(cliente, attrs) do
     cliente
     |> cast(attrs, [:name, :direccion, :cif])
