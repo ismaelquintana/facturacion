@@ -28,6 +28,6 @@ jobs:
         uses: erlef/setup-elixir@v1
         with:
           elixir-version: "1.13.4"
-          otp-version: "24.2"
+          otp-version: "25"
       - run: docker-compose run --rm app mix deps.get
       - run: docker-compose run --rm app mix dialyzer
