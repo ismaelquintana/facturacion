@@ -56,5 +56,8 @@
     <%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %>
   </span>
 
+  <span class="ml-2 p-1.5 text-xs uppercase tracking-wider text-blue-900 bg-blue-200 rounded-lg bg-opacity-100 hover:font-bold">
+    <%= link "Export csv", to: Routes.export_path(@socket, :create), method: :post %>
+  </span>
 </div>
 

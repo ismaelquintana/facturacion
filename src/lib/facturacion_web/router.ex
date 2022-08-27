@@ -24,6 +24,8 @@ defmodule FacturacionWeb.Router do
 
     live "/clientes/:id", ClienteLive.Show, :show
     live "/clientes/:id/show/edit", ClienteLive.Show, :edit
+
+    post "/export", ExportController, :create
   end
 
   # Other scopes may use custom stacks.

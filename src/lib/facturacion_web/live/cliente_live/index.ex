@@ -5,6 +5,8 @@ defmodule FacturacionWeb.ClienteLive.Index do
 
   use FacturacionWeb, :live_view
 
+  import FacturacionWeb.Live.SharedComponents
+
   alias Facturacion.Clientes
   alias Facturacion.Clientes.Cliente
 

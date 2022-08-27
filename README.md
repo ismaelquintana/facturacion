@@ -64,3 +64,7 @@ https://tailwindcss.com/docs/guides/phoenix
 
 ---
 
+Create an export csv controller:
+
+https://fullstackphoenix.com/tutorials/csv-export
+
