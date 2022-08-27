@@ -1,13 +1,21 @@
 defmodule FacturacionWeb.Live.SharedComponents do
+  @moduledoc """
+  component to show dropdown when exporting data to excel, not in use yet
+  """
   use Phoenix.Component
   alias Phoenix.LiveView.JS
 
+  @doc false
   def dropdown(assigns) do
     # ~H"""
     # <div class="relative inline-block text-left">
     #   <button
-    #     class="p-1.5 text-xs uppercase tracking-wider text-indigo-900 bg-indigo-200 rounded-lg bg-opacity-100 hover:font-bold"
-    #     phx-click={ JS.toggle(to: "##{@id}", in: {"duration-300", "opacity-0", "opacity-100"}, out: {"duration-75", "opacity-100", "opacity-0"})}
+    #     class="p-1.5 text-xs uppercase tracking-wider
+    #           text-indigo-900 bg-indigo-200 rounded-lg bg-opacity-100 hover:font-bold"
+    #     phx-click=
+    #       { JS.toggle(to: "##{@id}",
+    #          in: {"duration-300", "opacity-0", "opacity-100"},
+    #         out: {"duration-75", "opacity-100", "opacity-0"})}
     #   >
     #     <%= render_slot(@toggle) %>
     #   </button>
