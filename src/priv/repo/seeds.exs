@@ -13,7 +13,7 @@
 alias Facturacion.Clientes.Cliente
 alias Facturacion.Repo
 
-for id <- 1..100 do
+for id <- 1..1000 do
   Repo.insert!(%Cliente{
     id: id,
     direccion: Faker.Address.Es.street_address() <> ", " <> Faker.Address.Es.city(),
