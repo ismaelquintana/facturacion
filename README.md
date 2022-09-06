@@ -68,3 +68,6 @@ Create an export csv controller:
 
 https://fullstackphoenix.com/tutorials/csv-export
 
+Pagination and order table:
+
+https://fullstackphoenix.com/tutorials/building-a-datatable-in-phoenix-liveview
