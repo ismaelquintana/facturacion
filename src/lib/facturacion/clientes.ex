@@ -9,7 +9,7 @@ defmodule Facturacion.Clientes do
 
   alias Facturacion.Clientes.Cliente
 
-  @pagination [page_size: 10]
+  @pagination [page_size: 15]
   @doc """
   Returns the list of clientes.
 

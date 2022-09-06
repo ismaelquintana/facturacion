@@ -51,7 +51,7 @@
     </table>
   </div>
 
-  <%= live_component TutorialWeb.Live.PaginationComponent, params: @params, pagination_data: @clientes %>
+  <%= live_component FacturacionWeb.Live.PaginationComponent, params: @params, pagination_data: @clientes %>
 
   <span class="p-1.5 text-xs uppercase tracking-wider text-green-900 bg-green-200 rounded-lg bg-opacity-100 hover:font-bold">
     <%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %>

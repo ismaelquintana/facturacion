@@ -2,7 +2,7 @@ defmodule FacturacionWeb.Live.PaginationComponent do
   use FacturacionWeb, :live_component
   import FacturacionWeb.Live.DataTable
 
-  @distance 5
+  @distance 7
 
   def update(assigns, socket) do
     {
@@ -20,7 +20,7 @@ defmodule FacturacionWeb.Live.PaginationComponent do
         <div class="btn-group">
           <%= prev_link(@params, @page_number) %>
           <%= for num <- start_page(@page_number)..end_page(@page_number, @total_pages) do %>
-            <%= live_patch num, to: "?#{querystring(@params, page: num)}", class: "btn btn-link #{if @page_number == num, do: "btn-active", else: ""}" %>
+            <%= live_patch num, to: "?#{querystring(@params, page: num)}", class: "ml-2 p-1.5 #{if @page_number == num, do: "ml-2 p-1.5 bg-blue-200 rounded-full bg-opacity-100 hover:text-white hover:bg-blue-500", else: "hover:font-bold"}" %>
           <% end %>
           <%= next_link(@params, @page_number, @total_pages) %>
         </div>
