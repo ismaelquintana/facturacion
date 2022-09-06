@@ -18,7 +18,7 @@ defmodule Facturacion.Clientes do
       [%Cliente{}, ...]
 
   """
-  def list_clientes() do
+  def list_clientes do
     Repo.all(Cliente)
   end
 

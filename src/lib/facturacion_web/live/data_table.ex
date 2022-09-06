@@ -1,5 +1,9 @@
 defmodule FacturacionWeb.Live.DataTable do
+  @moduledoc """
+  Sort list of table
+  """
   import Phoenix.LiveView.Helpers
+  alias Plug.Conn.Query
 
   def sort(%{"sort_field" => field, "sort_direction" => direction})
       when direction in ~w(asc desc) do
@@ -30,7 +34,7 @@ defmodule FacturacionWeb.Live.DataTable do
   end
 
   defp querystring(params, opts) do
-    params = params |> Plug.Conn.Query.encode() |> URI.decode_query()
+    params = params |> Query.encode() |> URI.decode_query()
 
     opts = %{
       "page" => opts[:page],
