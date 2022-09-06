@@ -5,6 +5,10 @@ defmodule FacturacionWeb.Live.DataTable do
   import Phoenix.LiveView.Helpers
   alias Plug.Conn.Query
 
+  @doc """
+  Convert direction of sort from string to atom when value is asc, desc
+  if no value is provide :asc is set
+  """
   def sort(%{"sort_field" => field, "sort_direction" => direction})
       when direction in ~w(asc desc) do
     {String.to_atom(direction), String.to_existing_atom(field)}
@@ -14,6 +18,10 @@ defmodule FacturacionWeb.Live.DataTable do
     {:asc, :id}
   end
 
+  @doc """
+  Helper function for setting correct live_patch in templates
+  with the params for sort_direction and sort_field
+  """
   def table_link(params, text, field) do
     direction = params["sort_direction"]
 
