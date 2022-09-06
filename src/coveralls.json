@@ -9,7 +9,8 @@
         "lib/facturacion_web/live/cliente_live/form_component.ex",
         "lib/facturacion_web/live/live_helpers.ex",
         "lib/facturacion_web/controllers/export_controller.ex",
-        "lib/facturacion_web/live/shared_components.ex"
+        "lib/facturacion_web/live/shared_components.ex",
+        "lib/facturacion_web/live/data_table.ex"
     ],
 
     "terminal_options": {
