@@ -9,6 +9,7 @@ defmodule Facturacion.Clientes do
 
   alias Facturacion.Clientes.Cliente
 
+  @pagination [page_size: 10]
   @doc """
   Returns the list of clientes.
 
@@ -28,7 +29,8 @@ defmodule Facturacion.Clientes do
       c in Cliente,
       order_by: ^sort(params)
     )
-    |> Repo.all()
+    |> Scrivener.paginate(Scrivener.Config.new(Repo, @pagination, params))
+    # |> Repo.all()
   end
 
   @doc """
