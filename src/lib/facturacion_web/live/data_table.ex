@@ -30,7 +30,7 @@ defmodule FacturacionWeb.Live.DataTable do
     live_patch(text, to: "?" <> querystring(params, opts), class: "link flex items-center")
   end
 
-  defp querystring(params, opts \\ %{}) do
+  defp querystring(params, opts) do
     params = params |> Plug.Conn.Query.encode() |> URI.decode_query()
 
     opts = %{
