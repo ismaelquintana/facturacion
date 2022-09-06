@@ -4,7 +4,6 @@ defmodule FacturacionWeb.Live.DataTable do
   def sort(%{"sort_field" => field, "sort_direction" => direction})
       when direction in ~w(asc desc) do
     {String.to_atom(direction), String.to_existing_atom(field)}
-    |> IO.inspect(label: "Sort")
   end
 
   def sort(_other) do
@@ -44,7 +43,6 @@ defmodule FacturacionWeb.Live.DataTable do
     |> Enum.filter(fn {_, v} -> v != nil end)
     |> Enum.into(%{})
     |> URI.encode_query()
-    |> IO.inspect()
   end
 
   defp reverse("desc"), do: "asc"
