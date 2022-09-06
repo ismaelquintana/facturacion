@@ -9,7 +9,7 @@ defmodule FacturacionWeb.Live.DataTable do
   Convert direction of sort from string to atom when value is asc, desc
   if no value is provide :asc is set
   """
-  def sort(%{"sort_field" => field, "sort_direction" => direction} = params)
+  def sort(%{"sort_field" => field, "sort_direction" => direction})
       when direction in ~w(asc desc) do
     {String.to_atom(direction), String.to_existing_atom(field)}
   end
