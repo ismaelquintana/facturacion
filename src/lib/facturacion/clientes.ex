@@ -2,9 +2,9 @@ defmodule Facturacion.Clientes do
   @moduledoc """
   The Clientes context.
   """
-  use Boundary, deps: [Facturacion], exports: [Cliente]
 
   import Ecto.Query, warn: false
+  import FacturacionWeb.Live.DataTable, only: [sort: 1]
   alias Facturacion.Repo
 
   alias Facturacion.Clientes.Cliente
@@ -18,8 +18,17 @@ defmodule Facturacion.Clientes do
       [%Cliente{}, ...]
 
   """
-  def list_clientes do
+  def list_clientes() do
     Repo.all(Cliente)
+  end
+
+  @doc false
+  def list_clientes(params) do
+    from(
+      c in Cliente,
+      order_by: ^sort(params)
+    )
+    |> Repo.all()
   end
 
   @doc """

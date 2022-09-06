@@ -18,16 +18,15 @@
     <table class="w-full px-10 border-collapse table-auto">
       <thead class="bg-gray-200 border-b-2 border-gray-400">
         <tr>
-          <th class="p-3 text-sm font-semibold tracking-wide text-left">Nombre</th>
-          <th class="p-3 text-sm font-semibold tracking-wide text-left">Dirección</th>
-          <th class="p-3 text-sm font-semibold tracking-wide text-left">CIF/NIF</th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left"><%= table_link(@params, "Nombre", :name) %></th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left"><%= table_link(@params, "Dirección", :direccion) %></th>
+          <th class="p-3 text-sm font-semibold tracking-wide text-left"><%= table_link(@params, "CIF/NIF", :cif) %></th>
           <th class="p-3 text-sm font-semibold tracking-wide text-center">Acción</th>
         </tr>
       </thead>
       <tbody id="clientes" class="divide-y divide-gray-100">
         <%= for cliente <- @clientes do %>
           <tr id={"cliente-#{cliente.id}"} class="hover:bg-gray-300">
-<!--            <td class="p-3 text-sm text-gray-700 whitespace-nowrap hover:ring hover:ring-inset hover:ring-blue-800 hover:rounded-lg"><%= cliente.name %></td> -->
             <td class="p-3 text-sm text-gray-700 whitespace-nowrap"><%= cliente.name %></td>
             <td class="p-3 text-sm text-gray-700 whitespace-nowrap"><%= cliente.direccion %></td>
             <td class="p-3 text-sm text-gray-700 whitespace-nowrap w-10"><%= cliente.cif %></td>

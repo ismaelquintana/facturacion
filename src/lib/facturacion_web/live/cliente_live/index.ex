@@ -6,13 +6,14 @@ defmodule FacturacionWeb.ClienteLive.Index do
   use FacturacionWeb, :live_view
 
   # import FacturacionWeb.Live.SharedComponents
+  import FacturacionWeb.Live.DataTable
 
   alias Facturacion.Clientes
   alias Facturacion.Clientes.Cliente
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :clientes, list_clientes())}
+    {:ok, socket}
   end
 
   @impl true
@@ -32,10 +33,11 @@ defmodule FacturacionWeb.ClienteLive.Index do
     |> assign(:cliente, %Cliente{})
   end
 
-  defp apply_action(socket, :index, _params) do
+  defp apply_action(socket, :index, params) do
     socket
     |> assign(:page_title, "Listing Clientes")
-    |> assign(:cliente, nil)
+    |> assign(:params, params)
+    |> assign(:clientes, list_clientes(params))
   end
 
   @impl true
@@ -43,10 +45,10 @@ defmodule FacturacionWeb.ClienteLive.Index do
     cliente = Clientes.get_cliente!(id)
     {:ok, _} = Clientes.delete_cliente(cliente)
 
-    {:noreply, assign(socket, :clientes, list_clientes())}
+    {:noreply, assign(socket, :clientes, list_clientes(%{}))}
   end
 
-  defp list_clientes do
-    Clientes.list_clientes()
+  defp list_clientes(params) do
+    Clientes.list_clientes(params)
   end
 end
