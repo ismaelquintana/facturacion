@@ -30,6 +30,7 @@ defmodule Facturacion.Clientes do
       order_by: ^sort(params)
     )
     |> Scrivener.paginate(Scrivener.Config.new(Repo, @pagination, params))
+
     # |> Repo.all()
   end
 

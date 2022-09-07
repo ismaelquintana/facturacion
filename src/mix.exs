@@ -68,7 +68,7 @@ defmodule Facturacion.MixProject do
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:faker, "~> 0.17.0", only: [:dev, :test]},
-      {:scrivener_ecto, "~> 2.0"},
+      {:scrivener_ecto, "~> 2.0"}
     ]
   end
 

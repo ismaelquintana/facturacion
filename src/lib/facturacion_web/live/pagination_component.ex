@@ -34,23 +34,29 @@ defmodule FacturacionWeb.Live.PaginationComponent do
       page_number: pagination.page_number,
       page_size: pagination.page_size,
       total_entries: pagination.total_entries,
-      total_pages: pagination.total_pages,
+      total_pages: pagination.total_pages
     ]
   end
 
   def prev_link(conn, current_page) do
     if current_page != 1 do
-      live_patch "Prev", to: "?" <> querystring(conn, page: current_page - 1), class: "btn btn-link"
+      live_patch("Prev",
+        to: "?" <> querystring(conn, page: current_page - 1),
+        class: "btn btn-link"
+      )
     else
-      live_patch "Prev", to: "#", class: "btn btn-link btn-disabled"
+      live_patch("Prev", to: "#", class: "btn btn-link btn-disabled")
     end
   end
 
   def next_link(conn, current_page, num_pages) do
     if current_page != num_pages do
-      live_patch "Next", to: "?" <> querystring(conn, page: current_page + 1), class: "btn btn-link"
+      live_patch("Next",
+        to: "?" <> querystring(conn, page: current_page + 1),
+        class: "btn btn-link"
+      )
     else
-      live_patch "Next", to: "#", class: "btn btn-link btn-disabled"
+      live_patch("Next", to: "#", class: "btn btn-link btn-disabled")
     end
   end
 
@@ -58,12 +64,15 @@ defmodule FacturacionWeb.Live.PaginationComponent do
   def start_page(current_page), do: current_page - @distance
 
   def end_page(current_page, 0), do: current_page
+
   def end_page(current_page, total)
-       when current_page <= @distance and @distance * 2 <= total do
+      when current_page <= @distance and @distance * 2 <= total do
     @distance * 2
   end
+
   def end_page(current_page, total) when current_page + @distance >= total do
     total
   end
+
   def end_page(current_page, _total), do: current_page + @distance - 1
 end
