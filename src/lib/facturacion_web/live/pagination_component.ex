@@ -1,9 +1,13 @@
 defmodule FacturacionWeb.Live.PaginationComponent do
+  @moduledoc """
+  Component for pagination of datatables.
+  """
   use FacturacionWeb, :live_component
   import FacturacionWeb.Live.DataTable
 
   @distance 7
 
+  @doc false
   def update(assigns, socket) do
     {
       :ok,
@@ -13,6 +17,7 @@ defmodule FacturacionWeb.Live.PaginationComponent do
     }
   end
 
+  @doc false
   def render(assigns) do
     ~H"""
     <div id={assigns[:id] || "pagination"} class="flex justify-center my-2">
