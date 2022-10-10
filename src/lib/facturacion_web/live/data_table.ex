@@ -2,7 +2,7 @@ defmodule FacturacionWeb.Live.DataTable do
   @moduledoc """
   Sort list of table
   """
-  import Phoenix.LiveView.Helpers
+  # import Phoenix.LiveView.Helpers
   alias Plug.Conn.Query
 
   @doc """
@@ -22,7 +22,7 @@ defmodule FacturacionWeb.Live.DataTable do
   Helper function for setting correct live_patch in templates
   with the params for sort_direction and sort_field
   """
-  def table_link(params, text, field) do
+  def table_link(params, field) do
     direction = params["sort_direction"]
 
     opts =
@@ -38,7 +38,8 @@ defmodule FacturacionWeb.Live.DataTable do
         ]
       end
 
-    live_patch(text, to: "?" <> querystring(params, opts), class: "link flex items-center")
+    # live_patch(text, to: "?" <> querystring(params, opts), class: "link flex items-center")
+    "?" <> querystring(params, opts)
   end
 
   def querystring(params, opts) do
