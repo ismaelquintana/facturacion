@@ -20,19 +20,46 @@
         <tr>
           <th class="p-3 text-sm font-semibold tracking-wide text-left">
             <.link patch={table_link(@params, :name)} class="link flex items-center">
-              <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
-              Nombre
+              <%= if @params["sort_field"] == "name" do %>
+                <%= case @params["sort_direction"] do %>
+                <% "asc" -> %>
+                  <Boxicons.up_arrow solid class="w-4 h-4 mr-1"/>
+                <% "desc" -> %>
+                  <Boxicons.down_arrow solid class="w-4 h-4 mr-1"/>
+                <% end %>
+              <% else %>
+                <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
+              <% end %>
+                Nombre
             </.link>
           </th>
           <th class="p-3 text-sm font-semibold tracking-wide text-left">
             <.link patch={table_link(@params, :direccion)} class="link flex items-center">
-              <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
+              <%= if @params["sort_field"] == "direccion" do %>
+                <%= case @params["sort_direction"] do %>
+                <% "asc" -> %>
+                  <Boxicons.up_arrow solid class="w-4 h-4 mr-1"/>
+                <% "desc" -> %>
+                  <Boxicons.down_arrow solid class="w-4 h-4 mr-1"/>
+                <% end %>
+              <% else %>
+                <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
+              <% end %>
               Dirección
             </.link>
           </th>
           <th class="p-3 text-sm font-semibold tracking-wide text-left">
             <.link patch={table_link(@params, :cif)} class="link flex items-center">
-              <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
+              <%= if @params["sort_field"] == "cif" do %>
+                <%= case @params["sort_direction"] do %>
+                <% "asc" -> %>
+                  <Boxicons.up_arrow solid class="w-4 h-4 mr-1"/>
+                <% "desc" -> %>
+                  <Boxicons.down_arrow solid class="h-4 w-4" />
+                <% end %>
+              <% else %>
+                <Boxicons.sort_alt class="w-4 h-4 mr-1"/>
+              <% end %>
               CIF/NIF
             </.link>
           </th>
@@ -70,12 +97,18 @@
 
   <%= live_component FacturacionWeb.Live.PaginationComponent, params: @params, pagination_data: @clientes %>
 
-  <span class="p-1.5 text-xs uppercase tracking-wider text-green-900 bg-green-200 rounded-lg bg-opacity-100 hover:font-bold">
-    <%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %>
+  <span class="block w-fit my-2 p-1.5 text-xs uppercase tracking-wider text-green-900 bg-green-200 rounded-lg bg-opacity-100 hover:font-bold">
+    <div class="flex">
+      <Heroicons.user_plus class="w-4 h-4 mr-1"/>
+      <%= live_patch "New Cliente", to: Routes.cliente_index_path(@socket, :new) %>
+    </div>
   </span>
 
-  <span class="ml-2 p-1.5 text-xs uppercase tracking-wider text-blue-900 bg-blue-200 rounded-lg bg-opacity-100 hover:font-bold">
-    <%= link "Export csv", to: Routes.export_path(@socket, :create), method: :post %>
+  <span class="block w-fit my-2 p-1.5 text-xs uppercase tracking-wider text-blue-900 bg-blue-200 rounded-lg bg-opacity-100 hover:font-bold">
+    <div class="flex">
+      <Heroicons.document_arrow_down class="w-4 h-4 mr-1"/>
+      <%= link "Export csv", to: Routes.export_path(@socket, :create), method: :post, class: "px-1" %>
+    </div>
   </span>
 </div>
 

@@ -41,7 +41,7 @@ First tries with phoenix framework using docker.
 
 ---
 Sometimes you might have problems when doing `git commit`, if so do:
-- rm -rf ./hooks
+- rm -rf ./src/.git/hooks
 - dcr --rm app mix git_hooks.install
 
 ---

@@ -42,6 +42,18 @@ defmodule FacturacionWeb.Live.DataTable do
     "?" <> querystring(params, opts)
   end
 
+  def column_icon(params, field) do
+    if params["sort_field"] == to_string(field) do
+      if params["sort_direction"] == "asc" do
+        "<Boxicons.up_arrow solid class='w-4 h-4 mr-1'/>"
+      else
+        "<Boxicons.down_arrow solid class='w-4 h-4 mr-1'/>"
+      end
+    else
+      "<Boxicons.sort_alt class='w-4 h-4 mr-1'/>"
+    end
+  end
+
   def querystring(params, opts) do
     params = params |> Query.encode() |> URI.decode_query()
 
